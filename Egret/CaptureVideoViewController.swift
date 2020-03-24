@@ -16,7 +16,8 @@ class CaptureVideoViewController: UIViewController {
     var captureSession: AVCaptureSession!
     var deviceInput: AVCaptureDeviceInput!
     var videoOutput: AVCaptureVideoDataOutput!
-    
+    var fileOutput: AVCaptureFileOutput!
+    var movieOutput: AVCaptureMovieFileOutput!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +65,16 @@ class CaptureVideoViewController: UIViewController {
         /// 设置代理
         videoOutput.setSampleBufferDelegate(self, queue: DispatchQueue.global())
         
+        /// 视频输出
+        movieOutput = AVCaptureMovieFileOutput()
+        if let connection = movieOutput.connection(with: .video), connection.isVideoMirroringSupported {
+            connection.preferredVideoStabilizationMode = .auto
+//            connection.videoOrientation
+        }
+        if captureSession.canAddOutput(movieOutput) {
+            captureSession.addOutput(movieOutput)
+        }
+        
         /// 预览
         let preLayer = AVCaptureVideoPreviewLayer(session: captureSession)
         preLayer.frame = self.view.bounds
@@ -74,7 +85,19 @@ class CaptureVideoViewController: UIViewController {
         captureSession.startRunning()
     }
 
-
+///a开始录制
+    func startRecordSession() {
+        let url = URL(fileURLWithPath: NSTemporaryDirectory()+"temp.mp4")
+        if FileManager.default.fileExists(atPath: url.path) {
+            try? FileManager.default.removeItem(at: url)
+        }
+        movieOutput.startRecording(to: url, recordingDelegate: self)
+    }
+    /// 结束录制
+    func stopRecord() {
+        movieOutput.stopRecording()
+        captureSession.stopRunning()
+    }
 }
 
 extension CaptureVideoViewController: AVCaptureVideoDataOutputSampleBufferDelegate {
@@ -82,4 +105,40 @@ extension CaptureVideoViewController: AVCaptureVideoDataOutputSampleBufferDelega
         
         
     }
+}
+
+extension CaptureVideoViewController: AVCaptureFileOutputRecordingDelegate {
+    func fileOutput(_ output: AVCaptureFileOutput, didStartRecordingTo fileURL: URL, from connections: [AVCaptureConnection]) {
+        print("开始录制")
+    }
+    func fileOutput(_ output: AVCaptureFileOutput, didFinishRecordingTo outputFileURL: URL, from connections: [AVCaptureConnection], error: Error?) {
+        print("录制结束")
+        print(outputFileURL)
+        if let data = try? Data(contentsOf: outputFileURL) {
+            print(data.count/1024/1024)
+        }
+        /// 压缩
+        let time = Date().timeIntervalSince1970
+        let path = NSTemporaryDirectory() + "\(time)"
+        
+        let asset = AVAsset(url: outputFileURL)
+        let exportSession = AVAssetExportSession(asset: asset, presetName: AVAssetExportPresetMediumQuality)
+        exportSession?.shouldOptimizeForNetworkUse = true
+        exportSession?.outputURL = URL(fileURLWithPath: path)
+        exportSession?.outputFileType = .mp4
+        exportSession?.exportAsynchronously(completionHandler: {
+            switch(exportSession?.status) {
+            case .completed:
+                if let data = try? Data(contentsOf: URL(fileURLWithPath: path)) {
+                    print(data.count/1024/1024)
+                }
+            case .none:
+                break
+            case .some(_):
+                break
+            }
+        })
+    }
+    
+    
 }
