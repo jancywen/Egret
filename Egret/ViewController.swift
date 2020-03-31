@@ -15,6 +15,9 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    @IBAction func uploadCertificate(_ sender: Any) {
+        navigationController?.pushViewController(PhotoIndexViewController(), animated: true)
+    }
+    
 }
 

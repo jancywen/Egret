@@ -32,16 +32,17 @@ class CaptureVideoViewController: UIViewController {
         
         /// 设置输入端
         /// 默认返回后置摄像头
-        /// let device = AVCaptureDevice.default(for: .video)
+         let device = AVCaptureDevice.default(for: .video)
+        /*
         /// 前置摄像头
         let frontCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .front)
         /// 后置摄像头
         let backCamera = AVCaptureDevice.default(.builtInWideAngleCamera, for: .video, position: .back)
         /// 麦克风
         let mic = AVCaptureDevice.default(.builtInMicrophone, for: .audio, position: .unspecified)
-        
+        */
         do {
-            deviceInput = try AVCaptureDeviceInput(device: frontCamera!)
+            deviceInput = try AVCaptureDeviceInput(device: device!)
         } catch {
             print("get device input error")
         }
