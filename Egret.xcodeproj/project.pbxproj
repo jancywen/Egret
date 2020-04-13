@@ -13,6 +13,7 @@
 		E846D01624335051000633B6 /* CameraFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E846D01224335051000633B6 /* CameraFloatingView.swift */; };
 		E846D01724335051000633B6 /* UIImage+FixOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E846D01324335051000633B6 /* UIImage+FixOrientation.swift */; };
 		E846D01824335051000633B6 /* Camera.bundle in Resources */ = {isa = PBXBuildFile; fileRef = E846D01424335051000633B6 /* Camera.bundle */; };
+		E846D01A24336143000633B6 /* MetaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E846D01924336143000633B6 /* MetaViewController.swift */; };
 		E8DCF672241B770400AEFDEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCF671241B770400AEFDEE /* AppDelegate.swift */; };
 		E8DCF676241B770400AEFDEE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8DCF675241B770400AEFDEE /* ViewController.swift */; };
 		E8DCF679241B770400AEFDEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8DCF677241B770400AEFDEE /* Main.storyboard */; };
@@ -48,6 +49,7 @@
 		E846D01224335051000633B6 /* CameraFloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraFloatingView.swift; sourceTree = "<group>"; };
 		E846D01324335051000633B6 /* UIImage+FixOrientation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+FixOrientation.swift"; sourceTree = "<group>"; };
 		E846D01424335051000633B6 /* Camera.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Camera.bundle; sourceTree = "<group>"; };
+		E846D01924336143000633B6 /* MetaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetaViewController.swift; sourceTree = "<group>"; };
 		E8DCF66E241B770400AEFDEE /* Egret.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Egret.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8DCF671241B770400AEFDEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E8DCF675241B770400AEFDEE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 				E8DCF67A241B770900AEFDEE /* Assets.xcassets */,
 				E8DCF67C241B770900AEFDEE /* LaunchScreen.storyboard */,
 				E8DCF67F241B770900AEFDEE /* Info.plist */,
+				E846D01924336143000633B6 /* MetaViewController.swift */,
 			);
 			path = Egret;
 			sourceTree = "<group>";
@@ -292,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E846D01724335051000633B6 /* UIImage+FixOrientation.swift in Sources */,
+				E846D01A24336143000633B6 /* MetaViewController.swift in Sources */,
 				E8DCF6A5241B7AD300AEFDEE /* CaptureVideoViewController.swift in Sources */,
 				E8DCF676241B770400AEFDEE /* ViewController.swift in Sources */,
 				E8DCF672241B770400AEFDEE /* AppDelegate.swift in Sources */,

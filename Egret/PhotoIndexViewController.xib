@@ -54,11 +54,20 @@
                         <action selector="componyHorizontal:" destination="-1" eventType="touchUpInside" id="LXH-oe-s6z"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzh-cI-JC2">
+                    <rect key="frame" x="84" y="683" width="46" height="30"/>
+                    <state key="normal" title="二维码"/>
+                    <connections>
+                        <action selector="meta:" destination="-1" eventType="touchUpInside" id="nCk-DX-N8G"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="K5V-G0-aVx" firstAttribute="centerX" secondItem="uzh-cI-JC2" secondAttribute="centerX" id="FMc-mS-ETI"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="tWC-Q5-VAB" secondAttribute="trailing" constant="98" id="Mha-du-wjC"/>
                 <constraint firstItem="tWC-Q5-VAB" firstAttribute="top" secondItem="DDb-cg-9Ao" secondAttribute="bottom" constant="39" id="cuy-Rw-jsP"/>
+                <constraint firstItem="K5V-G0-aVx" firstAttribute="top" secondItem="uzh-cI-JC2" secondAttribute="bottom" constant="30" id="h9p-ul-vv6"/>
                 <constraint firstItem="5nP-9f-vJT" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="hRU-hq-knV"/>
                 <constraint firstItem="5nP-9f-vJT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="hrI-Qa-YGR"/>
                 <constraint firstItem="Wm3-CK-r8l" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="61" id="iAN-ZI-yaO"/>

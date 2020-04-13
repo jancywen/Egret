@@ -51,6 +51,12 @@ class PhotoIndexViewController: UIViewController {
         self.present(vc, animated: true, completion: nil)
 
     }
+    
+    @IBAction func meta(_ sender: Any) {
+        let vc = MetaViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true, completion: nil)
+    }
 }
 
 extension PhotoIndexViewController: CameraControllerProtocol {
